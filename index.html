@@ -38,7 +38,7 @@
     async function redirectToGoogleForm() {
       document.getElementById('loading').style.display = 'block'; // Show the loading image
 
-      await liff.init({ liffId: "2006013275-qgvBWBEj" });
+      await liff.init({ liffId: "2006013275-7e35R5Oy" });
 
       if (!liff.isLoggedIn()) {
         liff.login();
@@ -52,7 +52,7 @@
         const friend = await liff.getFriendship();
         if (!friend.friendFlag) {
           document.getElementById('loading').style.display = 'none'; // Hide the loading image
-          if (confirm("คุณยังไม่ได้เพิ่ม สโมสรนักศึกษา เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          if (confirm("คุณยังไม่ได้เพิ่มสโมสรนักศึกษาเป็นเพื่อน จะเพิ่มเลยไหม?")) {
             window.location = "https://line.me/R/ti/p/@125jhxql";
           } else {
             liff.closeWindow();
