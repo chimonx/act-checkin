@@ -60,12 +60,7 @@
         const formUrl = "https://smobu.unco-op.co.th/Event/barcode.html";
         const url = `${formUrl}?userid=${userId}`;
 
-        liff.openWindow({
-          url: url,
-          external: true // This will open the URL in the device's default web browser
-        });
-
-        liff.closeWindow(); // Close the LIFF window after opening the external browser
+        window.location.href = url;
       }
     }
 
