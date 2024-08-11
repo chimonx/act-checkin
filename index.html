@@ -63,7 +63,10 @@
         const formUrl = "https://smobu.unco-op.co.th/checkin.html";
         const url = `${formUrl}?userid=${userId}`;
 
-        window.open(url, '_blank'); // Open the URL in a new tab or window
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.target = "_self"; // Open in the same window, which should trigger Safari
+        anchor.click();
       }
     }
 
