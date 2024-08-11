@@ -44,10 +44,7 @@
         liff.login();
       } else {
         const profile = await liff.getProfile();
-        const accessToken = await liff.getAccessToken();
         const userId = profile.userId;
-        const displayName = profile.displayName;
-        const pictureUrl = encodeURIComponent(profile.pictureUrl); // Ensure URL encoding for pictureUrl
 
         const friend = await liff.getFriendship();
         if (!friend.friendFlag) {
@@ -63,7 +60,12 @@
         const formUrl = "https://smobu.unco-op.co.th/Event/checkin.html";
         const url = `${formUrl}?userid=${userId}`;
 
-        window.location.href = url;
+        liff.openWindow({
+          url: url,
+          external: true // This will open the URL in the device's default web browser
+        });
+
+        liff.closeWindow(); // Close the LIFF window after opening the external browser
       }
     }
 
