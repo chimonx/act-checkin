@@ -44,10 +44,7 @@
         liff.login();
       } else {
         const profile = await liff.getProfile();
-        const accessToken = await liff.getAccessToken();
         const userId = profile.userId;
-        const displayName = profile.displayName;
-        const pictureUrl = encodeURIComponent(profile.pictureUrl); // Ensure URL encoding for pictureUrl
 
         const friend = await liff.getFriendship();
         if (!friend.friendFlag) {
@@ -63,10 +60,10 @@
         const formUrl = "https://smobu.unco-op.co.th/checkin.html";
         const url = `${formUrl}?userid=${userId}`;
 
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.target = "_self"; // Open in the same window, which should trigger Safari
-        anchor.click();
+        liff.openWindow({
+          url: url,
+          external: true // This will open the URL in the device's default web browser
+        });
       }
     }
 
