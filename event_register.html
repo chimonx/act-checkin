@@ -38,7 +38,7 @@
     async function redirectToGoogleForm() {
       document.getElementById('loading').style.display = 'block'; // Show the loading image
 
-      await liff.init({ liffId: "2006013275-7e35R5Oy" });
+      await liff.init({ liffId: "2006013275-VmXpKp6x" });
 
       if (!liff.isLoggedIn()) {
         liff.login();
@@ -57,8 +57,8 @@
           return;
         }
 
-        const formUrl = "https://smobu.cloud/checkin.html";
-        const url = `${formUrl}?userid=${userId}`;
+        const formUrl = "https://smobu.cloud/BU/register.php";
+        const url = `?userid=${userId}`;
 
         liff.openWindow({
           url: url,
